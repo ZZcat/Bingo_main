@@ -1,13 +1,12 @@
 from Tkinter import *
 
-
-
 def show_entry_fields():
     global gamemode
     global NumberOfCard
     NumberOfCard = (e2.get())
     gamemode = (e1.get())
-    return gamemode
+    master.destroy()
+    return 
 master = Tk()
 master.wm_title("Bingo game")
 Label(master, text="1(Regular bingo)\n 2(Double bingo)\n 3(Small picture frame)\n 4(Double postage stamp)\n 5(Trails T)\n 6(Letter x)\n 7(Hardway bingo)\n 8(Cover-all)\n\n").grid(row=0)
@@ -21,6 +20,7 @@ e2.grid(row=1, column=1)
 Button(master, text='Chose', command=show_entry_fields).grid(row=3, column=1, sticky=W, pady=4)
 mainloop( )
 ###
+global allcards
 allcards = []
 while not int(NumberOfCard) == 0:
     root = Tk()
@@ -43,7 +43,7 @@ while not int(NumberOfCard) == 0:
             for col in row:
                 card_line.append(col.get())
             card.append(card_line)
-        print card
+        root.destroy()
 
     Button(text='Set card', command=onPress).grid()
     mainloop()
@@ -55,26 +55,29 @@ numbers = [0]
 bcard = []
 
 def win():
-    
+    global allcards
     master = Tk()
-
+    master.wm_title("You won!!!")
     listbox = Listbox(master)
     listbox.pack()
-
-    listbox.insert(END, "You won")
+    TrashABC = "Card:" ,card_showentry_number
+    listbox.insert(END, TrashABC)
     itemN = 0
     for item in bcard:
         itemN = itemN + 1
-        for itemB in item:
-            listbox.insert(itemN, itemB)
+        listbox.insert(itemN,item)
+    new_allcards = []
+    for remove_card_allcards in allcards:
+        if not list(remove_card_allcards) == list(card):
+            new_allcards.append(remove_card_allcards)
+            print "YES"
+        else:
+            print "NO"
+    allcards = new_allcards
 
-    mainloop()
     ###
-    print "Card #",card_showentry_number,"\n\nCard:"
-    for cardwinB in bcard:
-        print cardwinB
-
 def show_entry_fields():
+    global allcards
     numbers.append(e1.get())
     e1.delete(0,END)
     global card_showentry_number
@@ -92,10 +95,7 @@ def show_entry_fields():
                         if int(number) == int(card_lines):
                             e = True
                     except:
-                        print number
-                        print card_lines
-                        print "1"
-                        print "2"
+                        pass
                 if e:
                     bcard_lines.append(1)
                 else:
@@ -104,27 +104,27 @@ def show_entry_fields():
         if int(gamemode) == 1:
             if int(bcard[0][0]) == int(1) and int(bcard[0][1]) == int(1) and int(bcard[0][2]) == int(1) and int(bcard[0][3]) == int(1) and int(bcard[0][4]) == int(1):
                 win()
-            if int(bcard[1][0]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[1][2]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[1][4]) == int(1):
+            elif int(bcard[1][0]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[1][2]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[1][4]) == int(1):
                 win()
-            if int(bcard[2][0]) == int(1) and int(bcard[2][1]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[2][3]) == int(1) and int(bcard[2][4]) == int(1):
+            elif int(bcard[2][0]) == int(1) and int(bcard[2][1]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[2][3]) == int(1) and int(bcard[2][4]) == int(1):
                 win()
-            if int(bcard[3][0]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[3][2]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[3][4]) == int(1):
+            elif int(bcard[3][0]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[3][2]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[3][4]) == int(1):
                 win()
-            if int(bcard[4][0]) == int(1) and int(bcard[4][1]) == int(1) and int(bcard[4][2]) == int(1) and int(bcard[4][3]) == int(1) and int(bcard[4][4]) == int(1):
+            elif int(bcard[4][0]) == int(1) and int(bcard[4][1]) == int(1) and int(bcard[4][2]) == int(1) and int(bcard[4][3]) == int(1) and int(bcard[4][4]) == int(1):
                 win()
-            if int(bcard[0][0]) == int(1) and int(bcard[1][0]) == int(1) and int(bcard[2][0]) == int(1) and int(bcard[3][0]) == int(1) and int(bcard[4][0]) == int(1):
+            elif int(bcard[0][0]) == int(1) and int(bcard[1][0]) == int(1) and int(bcard[2][0]) == int(1) and int(bcard[3][0]) == int(1) and int(bcard[4][0]) == int(1):
                 win()
-            if int(bcard[0][1]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[2][1]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[4][1]) == int(1):
+            elif int(bcard[0][1]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[2][1]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[4][1]) == int(1):
                 win()
-            if int(bcard[0][2]) == int(1) and int(bcard[1][2]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][2]) == int(1) and int(bcard[4][2]) == int(1):
+            elif int(bcard[0][2]) == int(1) and int(bcard[1][2]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][2]) == int(1) and int(bcard[4][2]) == int(1):
                 win()
-            if int(bcard[0][3]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[2][3]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[4][3]) == int(1):
+            elif int(bcard[0][3]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[2][3]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[4][3]) == int(1):
                 win()
-            if int(bcard[0][4]) == int(1) and int(bcard[1][4]) == int(1) and int(bcard[2][4]) == int(1) and int(bcard[3][4]) == int(1) and int(bcard[4][4]) == int(1):
+            elif int(bcard[0][4]) == int(1) and int(bcard[1][4]) == int(1) and int(bcard[2][4]) == int(1) and int(bcard[3][4]) == int(1) and int(bcard[4][4]) == int(1):
                 win()                                                                                                                                              
-            if int(bcard[0][0]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[4][4]) == int(1):
+            elif int(bcard[0][0]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[4][4]) == int(1):
                 win()
-            if int(bcard[0][4]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[4][0]) == int(1):
+            elif int(bcard[0][4]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[4][0]) == int(1):
                 win()                                                                                                                                              
             
             

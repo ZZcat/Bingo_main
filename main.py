@@ -1,5 +1,7 @@
 from Tkinter import *
 
+
+
 def show_entry_fields():
     global gamemode
     global NumberOfCard
@@ -195,10 +197,9 @@ def show_entry_fields():
                 int(bcard[0][0]) == int(1) and int(bcard[0][1]) == int(1) and int(bcard[1][0]) == int(1) and int(bcard[z][1]) == int(1)
             def cor_d():
                 int(bcard[3][3]) == int(1) and int(bcard[3][4]) == int(1) and int(bcard[4][3]) == int(1) and int(bcard[4][4]) == int(1)
-            if cor_c() and cor_d() and int(bcard[1][0]) and int(bcard[1][1]) and int(bcard[1][3]) and int(bcard[1][4]) and and int(bcard[2][0]) and int(bcard[2][1]) and int(bcard[2][3]) and int(bcard[2][4]):
+            if cor_c() and cor_d() and int(bcard[1][0]) and int(bcard[1][1]) and int(bcard[1][3]) and int(bcard[1][4]) and int(bcard[2][0]) and int(bcard[2][1]) and int(bcard[2][3]) and int(bcard[2][4]):
                 win()
-        elif int(gamemode) == 8:
-            if 
+        elif int(gamemode) == 8: 
             pass
         elif int(gamemode) == 9:
             pass
@@ -230,7 +231,7 @@ def show_entry_fields():
                 d_bingo = d_bingo + 1
             if int(bcard[0][0]) == int(1) and int(bcard[4][0]) == int(1) and int(bcard[0][4]) == int(1) and int(bcard[4][4]) == int(1) and int(bcard[4][0]) == int(1):
                 d_bingo = d_bingo + 1 
-            if int(d_bingo) = 13:
+            if int(d_bingo) == 13:
                 win()
     return 
 master = Tk()

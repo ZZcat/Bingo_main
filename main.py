@@ -9,7 +9,7 @@ def show_entry_fields():
     return 
 master = Tk()
 master.wm_title("Bingo game")
-Label(master, text="1(Regular bingo)\n 2(Double bingo)\n 3(Small picture frame)\n 4(Double postage stamp)\n 5(Trails T)\n 6(Letter x)\n 7(Hardway bingo)\n 8(Cover-all)\n\n").grid(row=0)
+Label(master, text="1 - Regular Bingo\n2 - Double Bingo\n3 - Regular Bingo\n4 - Small Picture Frame\n5 - Double Postage Stamp\n6 - Trails T\n7 - Regular Bingo\n8 - Letter X\n9 - Hardway Bingo\n10 - Cover All\n\n").grid(row=0)
 Label(master, text="Number of cards    -->").grid(row=1)
 e1 = Entry(master)
 e2 = Entry(master)
@@ -101,7 +101,7 @@ def show_entry_fields():
                 else:
                     bcard_lines.append(0)
             bcard.append(bcard_lines)
-        if int(gamemode) == 1:
+        if int(gamemode) == 1 or int(gamemode) == 3 or int(gamemode) == 7:
             if int(bcard[0][0]) == int(1) and int(bcard[0][1]) == int(1) and int(bcard[0][2]) == int(1) and int(bcard[0][3]) == int(1) and int(bcard[0][4]) == int(1):
                 win()
             elif int(bcard[1][0]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[1][2]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[1][4]) == int(1):
@@ -125,7 +125,9 @@ def show_entry_fields():
             elif int(bcard[0][0]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[4][4]) == int(1):
                 win()
             elif int(bcard[0][4]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[4][0]) == int(1):
-                win()                                                                                                                                              
+                win()
+            elif int(bcard[0][0]) == int(1) and int(bcard[4][0]) == int(1) and int(bcard[0][4]) == int(1) and int(bcard[4][4]) == int(1) and int(bcard[4][0]) == int(1):
+                win()
             
             
         elif int(gamemode) == 2:
@@ -153,15 +155,17 @@ def show_entry_fields():
             if int(bcard[0][0]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[4][4]) == int(1):
                 d_bingo = d_bingo + 1
             if int(bcard[0][4]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[4][0]) == int(1):
-                d_bingo = d_bingo + 1                                                                                                                                            
+                d_bingo = d_bingo + 1
+            if int(bcard[0][0]) == int(1) and int(bcard[4][0]) == int(1) and int(bcard[0][4]) == int(1) and int(bcard[4][4]) == int(1) and int(bcard[4][0]) == int(1):
+                d_bingo = d_bingo + 1 
             
             if int(d_bingo) > 2:
                 win()
             
-        elif int(gamemode) == 3:
+        elif int(gamemode) == 4:
             if int(bcard[0][0]) == int(1) and int(bcard[0][1]) == int(1) and int(bcard[0][2]) == int(1) and int(bcard[0][3]) == int(1) and int(bcard[0][4]) == int(1) and int(bcard[1][0]) == int(1) and int(bcard[1][4]) == int(1) and int(bcard[2][0]) == int(1) and int(bcard[2][4]) == int(1) and int(bcard[3][0]) == int(1) and int(bcard[3][4]) == int(1) and int(bcard[4][0]) == int(1) and int(bcard[4][1]) == int(1) and int(bcard[4][2]) == int(1) and int(bcard[4][3]) == int(1) and int(bcard[4][4]):
                 win()
-        elif int(gamemode) == 4:
+        elif int(gamemode) == 5:
             def cor_b():
                 int(bcard[0][3]) == int(1) and int(bcard[0][4]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[1][4]) == int(1)
             def cor_c():
@@ -182,16 +186,52 @@ def show_entry_fields():
                 win()
             elif cor_c() and cor_d():
                 win()
-        elif int(gamemode) == 5:
-            pass
         elif int(gamemode) == 6:
-            pass
-        elif int(gamemode) == 7:
-            pass
+            def cor_b():
+                int(bcard[0][3]) == int(1) and int(bcard[0][4]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[1][4]) == int(1)
+            def cor_c():
+                int(bcard[3][0]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[4][0]) == int(1) and int(bcard[4][1]) == int(1)
+            def cor_a():
+                int(bcard[0][0]) == int(1) and int(bcard[0][1]) == int(1) and int(bcard[1][0]) == int(1) and int(bcard[z][1]) == int(1)
+            def cor_d():
+                int(bcard[3][3]) == int(1) and int(bcard[3][4]) == int(1) and int(bcard[4][3]) == int(1) and int(bcard[4][4]) == int(1)
+            if cor_c() and cor_d() and int(bcard[1][0]) and int(bcard[1][1]) and int(bcard[1][3]) and int(bcard[1][4]) and and int(bcard[2][0]) and int(bcard[2][1]) and int(bcard[2][3]) and int(bcard[2][4]):
+                win()
         elif int(gamemode) == 8:
+            if 
             pass
-        
-        
+        elif int(gamemode) == 9:
+            pass
+        elif int(gamemode) == 10:
+            d_bingo = 0
+            if int(bcard[0][0]) == int(1) and int(bcard[0][1]) == int(1) and int(bcard[0][2]) == int(1) and int(bcard[0][3]) == int(1) and int(bcard[0][4]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[1][0]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[1][2]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[1][4]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[2][0]) == int(1) and int(bcard[2][1]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[2][3]) == int(1) and int(bcard[2][4]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[3][0]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[3][2]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[3][4]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[4][0]) == int(1) and int(bcard[4][1]) == int(1) and int(bcard[4][2]) == int(1) and int(bcard[4][3]) == int(1) and int(bcard[4][4]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[0][0]) == int(1) and int(bcard[1][0]) == int(1) and int(bcard[2][0]) == int(1) and int(bcard[3][0]) == int(1) and int(bcard[4][0]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[0][1]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[2][1]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[4][1]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[0][2]) == int(1) and int(bcard[1][2]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][2]) == int(1) and int(bcard[4][2]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[0][3]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[2][3]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[4][3]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[0][4]) == int(1) and int(bcard[1][4]) == int(1) and int(bcard[2][4]) == int(1) and int(bcard[3][4]) == int(1) and int(bcard[4][4]) == int(1):
+                d_bingo = d_bingo + 1                                                                                                                                             
+            if int(bcard[0][0]) == int(1) and int(bcard[1][1]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][3]) == int(1) and int(bcard[4][4]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[0][4]) == int(1) and int(bcard[1][3]) == int(1) and int(bcard[2][2]) == int(1) and int(bcard[3][1]) == int(1) and int(bcard[4][0]) == int(1):
+                d_bingo = d_bingo + 1
+            if int(bcard[0][0]) == int(1) and int(bcard[4][0]) == int(1) and int(bcard[0][4]) == int(1) and int(bcard[4][4]) == int(1) and int(bcard[4][0]) == int(1):
+                d_bingo = d_bingo + 1 
+            if int(d_bingo) = 13:
+                win()
     return 
 master = Tk()
 Label(master, text="Number").grid(row=0)

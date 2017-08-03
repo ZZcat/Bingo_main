@@ -1,3 +1,7 @@
+#-*-coding:utf8;-*-
+#qpy:2
+#qpy:kivy
+
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.dropdown import DropDown
 from kivy.uix.textinput import TextInput

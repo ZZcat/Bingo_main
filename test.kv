@@ -1,0 +1,44 @@
+#:kivy 1.0.5 
+
+<loginView>: 
+        status:result 
+        Label: 
+                text:"Contacts Manager" 
+                pos:600,600 
+                font_size:40 
+
+
+        Label: 
+                text:"Username" 
+                pos:450,400 
+
+        Label: 
+                text:"Password" 
+                pos:450,300 
+
+        TextInput: 
+                multiline:False 
+                pos:600,425 
+                size:200,45 
+                font_size:20 
+                id:username 
+
+        TextInput: 
+                multiline:False 
+                pos:600,325 
+                password:True 
+                size:200,45 
+                font_size:20 
+                id:password 
+        Button: 
+                text:"Login" 
+                size:100,50 
+                pos:600,250 
+                on_press:root.validate(username.text,password.text) 
+        Label: 
+                text:"" 
+                pos:600,100 
+                id:result 
+<afterLogin>: 
+        Label: 
+                text:"Welcome" 

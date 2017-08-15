@@ -161,7 +161,7 @@ class MyApp(App):
         return Test()
 MyApp().run()
 ####
-Builder.load_string('''
+bstring = Builder.load_string('''
 #template for menu items
 [ListButton@ToggleButton]
     background_down: 'atlas://data/images/defaulttheme/bubble_btn'
@@ -290,6 +290,7 @@ class MyApp(App):
     def build(self):
         return Test()
 MyApp().run()
+Builder.unbind_widget(bstring.uid)
 print "A "*100
 ##def show_entry_fields():
 ##    global gamemode
